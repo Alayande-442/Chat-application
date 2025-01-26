@@ -3,7 +3,7 @@ import User from "../models/user.model.js";
 
 export const protectRoute = async (req, res, next) => {
   try {
-    // Ensure you have cookie-parser middleware enabled in your Express app
+    // Ensure you have COMMENT cookie-parser middleware enabled in your Express app
     const token = req.cookies?.jwt; // Safely access `jwt` from cookies
 
     if (!token) {

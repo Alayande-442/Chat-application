@@ -43,7 +43,7 @@ export const useAuthStore = create((set, get) => ({
     }
   },
 
-  // Login functionality
+  // Login COMMENT  functionality
   login: async (data) => {
     set({ isLoggingIn: true });
     try {
@@ -58,7 +58,7 @@ export const useAuthStore = create((set, get) => ({
     }
   },
 
-  // Logout functionality
+  // Logout COMMENT functionality
   logout: async () => {
     try {
       await axiosInstance.post("/auth/logout");
@@ -70,7 +70,7 @@ export const useAuthStore = create((set, get) => ({
     }
   },
 
-  //   Update profile page
+  //   Update COMMENT  profile page
   updateProfile: async (data) => {
     set({ isUpdatingProfile: true });
     try {
