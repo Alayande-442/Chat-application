@@ -103,43 +103,57 @@ baseURL:
 COMMENT General Notes:
 Authentication: All endpoints that modify user data (e.g., update-profile, check) require the user to be authenticated. This is typically done via a Bearer token sent in the Authorization header of the request.
 
+API Documentation for Message Routes
+
+1. GET/messages/users
+   Description: Fetches a list of users to populate the sidebar with their usernames and profile pictures. This helps display users in the UI for easier messaging.
+   Authentication: Requires a valid JWT token in the Authorization header.
+
+2. GET/messages/:id
+   Description: Retrieves the messages for a specific user or conversation based on the user’s ID. This is useful for fetching the message history.
+   Parameters: id (required): The ID of the user or conversation for which messages need to be fetched.
+   Authentication: Requires a valid JWT token in the Authorization header.
+
+3.Description: Sends a message from the authenticated user to a specified user (identified by the id in the URL).
+Parameters:id (required): The ID of the recipient user.
+
 <!-- SKELETON -->
-<!-- SKELETON -->
-<!-- SKELETON -->
-<!-- SKELETON -->
-<!-- SKELETON -->
-<!-- SKELETON -->
-<!-- SKELETON -->
-<!-- SKELETON -->
-<!-- SKELETON -->
-<!-- SKELETON -->
-<!-- SKELETON -->
-<!-- SKELETON -->
-<!-- SKELETON -->
-<!-- SKELETON -->
-<!-- SKELETON -->
-<!-- SKELETON -->
-<!-- SKELETON -->
-<!-- SKELETON -->
-<!-- SKELETON -->
-<!-- SKELETON -->
-<!-- SKELETON -->
-<!-- SKELETON -->
-<!-- SKELETON -->
-<!-- SKELETON -->
-<!-- SKELETON -->
-<!-- SKELETON -->
-<!-- SKELETON -->
-<!-- SKELETON -->
-<!-- SKELETON -->
-<!-- SKELETON -->
-<!-- SKELETON -->
-<!-- SKELETON -->
-<!-- SKELETON -->
-<!-- SKELETON -->
-<!-- SKELETON -->
-<!-- SKELETON -->
-<!-- SKELETON -->
+   <!-- SKELETON -->
+   <!-- SKELETON -->
+   <!-- SKELETON -->
+   <!-- SKELETON -->
+   <!-- SKELETON -->
+   <!-- SKELETON -->
+   <!-- SKELETON -->
+   <!-- SKELETON -->
+   <!-- SKELETON -->
+   <!-- SKELETON -->
+   <!-- SKELETON -->
+   <!-- SKELETON -->
+   <!-- SKELETON -->
+   <!-- SKELETON -->
+   <!-- SKELETON -->
+   <!-- SKELETON -->
+   <!-- SKELETON -->
+   <!-- SKELETON -->
+   <!-- SKELETON -->
+   <!-- SKELETON -->
+   <!-- SKELETON -->
+   <!-- SKELETON -->
+   <!-- SKELETON -->
+   <!-- SKELETON -->
+   <!-- SKELETON -->
+   <!-- SKELETON -->
+   <!-- SKELETON -->
+   <!-- SKELETON -->
+   <!-- SKELETON -->
+   <!-- SKELETON -->
+   <!-- SKELETON -->
+   <!-- SKELETON -->
+   <!-- SKELETON -->
+   <!-- SKELETON -->
+   <!-- SKELETON -->
+   <!-- SKELETON -->
 
 ├── client/
 │ ├── src/

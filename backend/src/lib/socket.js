@@ -11,22 +11,48 @@ const io = new Server(server, {
   },
 });
 
+// Used to store online users
+const userSocketMap = {}; // {userId: socketId}
+
 export function getReceiverSocketId(userId) {
   return userSocketMap[userId];
 }
 
-// used to store online users
-const userSocketMap = {}; // {userId: socketId}
-
 io.on("connection", (socket) => {
   console.log("A user connected", socket.id);
 
+  // Validate and map user ID
   const userId = socket.handshake.query.userId;
-  if (userId) userSocketMap[userId] = socket.id;
+  if (!userId) {
+    console.error("User ID is missing in handshake query.");
+    return;
+  }
 
-  // io.emit() is used to send events to all the connected clients
+  userSocketMap[userId] = socket.id;
+
+  // Notify all clients of online users
   io.emit("getOnlineUsers", Object.keys(userSocketMap));
 
+  // Join a private room (if applicable)
+  socket.on("joinRoom", (roomId) => {
+    socket.join(roomId);
+    console.log(`User ${socket.id} joined room ${roomId}`);
+  });
+
+  // Handle message sending (example for private messages)
+  socket.on("sendMessage", (messageData, callback) => {
+    const { receiverId } = messageData;
+    const receiverSocketId = getReceiverSocketId(receiverId);
+
+    if (receiverSocketId) {
+      io.to(receiverSocketId).emit("newMessage", messageData);
+      callback({ success: true });
+    } else {
+      callback({ success: false, error: "Receiver is offline." });
+    }
+  });
+
+  // Handle disconnection
   socket.on("disconnect", () => {
     console.log("A user disconnected", socket.id);
     delete userSocketMap[userId];

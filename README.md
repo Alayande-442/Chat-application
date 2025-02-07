@@ -41,7 +41,7 @@ COMMENT Usage Guidelines COMMENT
 Sign Up: Register as a new user to create an account.
 Login: Log in with your credentials.
 Start Chatting: Select a user to start chatting in real time.
-Log Out: Securely log out after your session.
+Log Out: Securely log out after your session...
 
 COMMENT FEATURES COMMENT
 Real-time messaging using Socket.io.
