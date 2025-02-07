@@ -1,3 +1,4 @@
+// COMMENT Sign up page
 import { useState } from "react";
 import { useAuthStore } from "../store/useAuthStore";
 import {
