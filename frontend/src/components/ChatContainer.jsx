@@ -32,7 +32,7 @@ const ChatContainer = () => {
     subscribeToMessages,
     unsubscribeFromMessages,
   ]);
-
+  // COMMENT useEffect for scrow
   useEffect(() => {
     if (messageEndRef.current && messages) {
       messageEndRef.current.scrollIntoView({ behavior: "smooth" });
