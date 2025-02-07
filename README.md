@@ -174,3 +174,17 @@ Parameters:id (required): The ID of the recipient user.
 3. Computer Issues.
 4. Imposters syndrome.
 5. Shortage of time.
+
+
+Project Architecture
+Overview
+The project follows a client-server architecture:
+Client (Frontend):
+The frontend is built with React and styled using DaisyUI. It handles the user interface, routing, and communication with the backend.
+Server (Backend):
+The backend is powered by Node.js and Express. It provides RESTful APIs for authentication, user management, and data storage.
+Real-Time Communication:
+Socket.io enables real-time chat functionality, ensuring messages are delivered instantly.
+Database:
+MongoDB is used to store user data, chat histories, and other necessary information.
+
