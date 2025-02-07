@@ -1,3 +1,4 @@
+// COMMENT Login page
 import { useState } from "react";
 import { useAuthStore } from "../store/useAuthStore";
 import AuthImagePattern from "../components/AuthImagePattern";
