@@ -1,3 +1,5 @@
+// COMMENT // Import the necessary modules
+
 import { Server } from "socket.io";
 import http from "http";
 import express from "express";
@@ -39,7 +41,7 @@ io.on("connection", (socket) => {
     console.log(`User ${socket.id} joined room ${roomId}`);
   });
 
-  // Handle message sending (example for private messages)
+  // Handle message sending (example forh private messages)
   socket.on("sendMessage", (messageData, callback) => {
     const { receiverId } = messageData;
     const receiverSocketId = getReceiverSocketId(receiverId);
