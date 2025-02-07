@@ -1,3 +1,4 @@
+// COMMENT overall App.js
 import Navbar from "./components/Navbar";
 
 import HomePage from "./pages/HomePage";
