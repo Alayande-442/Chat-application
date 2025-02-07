@@ -167,3 +167,10 @@ Parameters:id (required): The ID of the recipient user.
 │ ├── utils/ # Helper functions
 │ └── socket/ # Socket.io implementation
 └── README.md # Project documentation
+
+ Problems faced
+1. Unstable Nigeria Electricity.
+2. Network fluctuation.
+3. Computer Issues.
+4. Imposters syndrome.
+5. Shortage of time.
