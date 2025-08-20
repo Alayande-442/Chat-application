@@ -1,12 +1,20 @@
 import { create } from "zustand";
 import { useEffect } from "react";
+import { THEMES } from "../constants";
 
 const useThemeStore = create((set) => ({
   theme: localStorage.getItem("chat-theme") || "light",
   setTheme: (theme) => {
-    // Update the data-theme attribute on the html element
+    if (!THEMES.includes(theme)) return; // Only allow valid themes
+    
+    // Remove all theme classes first
+    document.documentElement.removeAttribute("data-theme");
+    
+    // Add the new theme
     document.documentElement.setAttribute("data-theme", theme);
     localStorage.setItem("chat-theme", theme);
+    
+    // Force a re-render by updating the state
     set({ theme });
   },
 }));
@@ -18,17 +26,23 @@ export const useThemeInitializer = () => {
   useEffect(() => {
     // Set the initial theme
     const savedTheme = localStorage.getItem("chat-theme") || "light";
-    document.documentElement.setAttribute("data-theme", savedTheme);
+    if (savedTheme && savedTheme !== theme) {
+      setTheme(savedTheme);
+    } else {
+      document.documentElement.setAttribute("data-theme", theme);
+    }
     
-    // Listen for system color scheme changes
+    // Listen for system color scheme changes (only for light/dark)
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
     const handleChange = () => {
-      setTheme(mediaQuery.matches ? "dark" : "light");
+      if (theme === 'light' || theme === 'dark') {
+        setTheme(mediaQuery.matches ? "dark" : "light");
+      }
     };
     
     mediaQuery.addEventListener("change", handleChange);
     return () => mediaQuery.removeEventListener("change", handleChange);
-  }, [setTheme]);
+  }, [setTheme, theme]);
 
   return { theme, setTheme };
 };

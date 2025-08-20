@@ -11,7 +11,23 @@ export default {
   },
   plugins: [require("daisyui")],
   daisyui: {
-    themes: THEMES,
+    themes: [
+      {
+        light: {
+          ...require("daisyui/src/theming/themes")["light"],
+        },
+      },
+      {
+        dark: {
+          ...require("daisyui/src/theming/themes")["dark"],
+        },
+      },
+      ...THEMES.filter(t => !['light', 'dark'].includes(t)).map(theme => ({
+        [theme]: {
+          ...require(`daisyui/src/theming/themes`)[theme] || {},
+        },
+      })),
+    ],
     darkTheme: "dark",
     base: true,
     styled: true,
